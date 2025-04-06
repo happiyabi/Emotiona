@@ -1,134 +1,10 @@
-//import 'package:device_preview/device_preview.dart';
-//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:persevere_1/components/home_page.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-// void main() {
-// runApp(DevicePreview(builder: (context) => MyApp()));
-// }
-
-// enum Mood { happy, sad, frustrated, indifferent, anxious, disgusted }
-
-// Map<Mood, Color> userMoodColors = {
-// Mood.happy: Color(0xFFF9F0C1),
-// Mood.sad: Color(0xFFA5C8E4),
-// Mood.frustrated: Color(0xFFF6A8A6),
-// Mood.indifferent: Color(0xFFDEDEDE),
-// Mood.anxious: Color(0xFFD8C8E8),
-// Mood.disgusted: Color(0xFFC0ECCC),
-// };
-
-// class MyApp extends StatelessWidget {
-// @override
-// Widget build(BuildContext context) {
-// return MaterialApp(
-// title: "MOOD JOURNAL",
-// theme: ThemeData(primarySwatch: 0xFFFAF7ED),
-// home: HomePage(),
-// );
-// }
-// }
-
-// class HomePage extends StatefulWidget {
-// @override
-// _HomePageState _createState() => _HomePageState();
-// }
-
-// class _HomePageState extends State<HomePage> {
-// DateTime
-// }
-
-// class JournalEntry {
-// final DateTime date;
-// final title;
-// final body;
-
-// JournalEntry({required this.date, required this.title, required this.body});
-// }
+import 'journal_entry.dart';
+import 'journal_entries_page.dart'; // Import the second page
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-// Widget build(BuildContext context) {
-//   return MaterialApp(
-//     debugShowCheckedModeBanner: false,
-//     home: Scaffold(
-//       backgroundColor: Colors.yellow[100],
-//       body: Align(
-//         alignment: Alignment.topCenter,
-//         child: Padding(
-//           padding: const EdgeInsets.only(top: 50.0),
-//           child: Column(
-//             children: [
-//               Text(
-//                 "moodi",
-//                 style: GoogleFonts.nunito(
-//                   fontSize: 38,
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ),
-//               IconButton(
-//                 onPressed: () {},
-//                 icon: const Icon(Icons.refresh),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     ),
-//   );
-// }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         backgroundColor: Colors.yellow[100],
-//         body: Align(
-//           alignment: Alignment.topCenter,
-//           child: Padding(
-//             padding: const EdgeInsets.only(top: 50.0),
-//             child: Column(
-//               children: [
-//                 Text(
-//                   "moodi",
-//                   style: GoogleFonts.nunito(
-//                     fontSize: 38,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//                 SizedBox(height: 10),
-//                 Align(
-//                   alignment: Alignment.bottomCenter,
-//                   child: Padding(
-//                     padding: const EdgeInsets.only(bottom: 50.0),
-//                     child: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//          );
-//       }
-// }
-
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -136,139 +12,96 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Journal Entry Tracker',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.yellow[100],
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 50.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Text(
-                  "moodi",
-                  style: GoogleFonts.nunito(
-                    fontSize: 38,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.add, size: 60),
-                ),
-              ),
-            ],
-          ),
-        ),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const JournalHomePage(),
     );
   }
 }
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+class JournalHomePage extends StatefulWidget {
+  const JournalHomePage({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         backgroundColor: Colors.yellow[100],
-//         body: Padding(
-//           padding: const EdgeInsets.symmetric(vertical: 50.0),
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               Align(
-//                 alignment: Alignment.topCenter,
-//                 child: Text(
-//                   "moodi",
-//                   style: GoogleFonts.nunito(
-//                     fontSize: 38,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                 ),
-//               ),
-//               Align(
-//                 alignment: Alignment.bottomCenter,
-//                 floatingActionButton: FloatingActionButton(
-//                   onPressed: () {},
-//                   child: Text("+"),
-//                   backgroundColor: Colors.yellow[100],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  _JournalHomePageState createState() => _JournalHomePageState();
+}
 
-// child: Padding(
-          //   padding: const EdgeInsets.only(top: 24.0),
+class _JournalHomePageState extends State<JournalHomePage> {
+  final List<JournalEntry> _entries = [];
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _contentController = TextEditingController();
 
-      // home: Scaffold(
-      //   body: ListView.builder(
-      //     itemCount: 10
-      //     children: [
-      //       // 1st box
-      //       Container(height: 200, width: 350, color: Colors.purple[50]),
+  void _addEntry() {
+    if (_titleController.text.isEmpty || _contentController.text.isEmpty) {
+      // Display error if title or content is empty
+      return;
+    }
 
-      //       // 2nd box
-      //       Container(height: 200, width: 350, color: Colors.purple[50]),
-      //     ],
-      //   ),
-        //   title: Text("moodi")
-        //   backgroundColor: const Color.fromARGB(248, 255, 242, 212),
-        //   elevation: 0,
-        // ),
-        // backgroundColor: const Color.fromARGB(248, 255, 242, 212),
-        // body: Container(),
-//       ),
-//     );
-//   }
-// }
- 
-//  home: Scaffold(
-//         appBar: AppBar(
-//           title: Text("moodi"),
-//           backgroundColor: const Color.fromARGB(248, 255, 242, 212),
-//           elevation: 0,
-//         ),
+    setState(() {
+      _entries.add(
+        JournalEntry(
+          title: _titleController.text,
+          content: _contentController.text,
+          date: DateTime.now(),
+        ),
+      );
+    });
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+    // Clear the text fields
+    _titleController.clear();
+    _contentController.clear();
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold()
-//     )
-//   };
-
-
-
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         appBar: AppBar(title: Text('Moodi')),
-//         body: Center(child: Text('Monthly Moods')),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Journal Entry Tracker'),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              controller: _titleController,
+              decoration: const InputDecoration(
+                labelText: 'Journal Title',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: TextField(
+              controller: _contentController,
+              maxLines: 5,
+              decoration: const InputDecoration(
+                labelText: 'Journal Content',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: _addEntry,
+            child: const Text('Add Journal Entry'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Navigate to the second page with the journal entries
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => JournalEntriesPage(entries: _entries),
+                ),
+              );
+            },
+            child: const Text('View Saved Journal Entries'),
+          ),
+        ],
+      ),
+    );
+  }
+}
